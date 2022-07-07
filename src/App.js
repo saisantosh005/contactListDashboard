@@ -1,10 +1,12 @@
 import "./styles.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Dashboard from "./components/Dashboard/Dashboard";
 
-export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
-}
+const App = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Dashboard} />
+    </Switch>
+  </Router>
+);
+export default App;
