@@ -5,8 +5,9 @@ const ChatBoardMainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background: black;
-  min-width: 150px;
-  max-width: 250px;
+  /* min-width: 150px;
+  max-width: 250px; */
+  width: 100%;
   margin: 8px;
   padding: 6px;
   border-radius: 15px;
@@ -23,8 +24,7 @@ const ChardBoardChatContainer = styled.div`
   background-color: #edede6;
   align-items: flex-start;
   flex-grow: 1;
-  width: 200px;
-  max-width: 220px;
+  width: 90%;
   max-height: 200px;
   padding: 10px;
   border-radius: 15px;
@@ -88,8 +88,9 @@ const InputAndButtonConatiner = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   flex-grow: 1;
+  width: 90%;
+  max-width: 300px;
   padding: 4px 6px;
-  max-width: 220px;
   @media screen and (min-width: 568px) {
     padding: 6px 8px;
     font-size: 20px;
@@ -118,8 +119,10 @@ const Input = styled.input`
   background-color: inherit;
   border: none;
   outline: none;
+  padding: 3px;
   @media screen and (min-width: 568px) {
     font-size: 14px;
+    padding: 5px;
   }
 `;
 const Button = styled.button`

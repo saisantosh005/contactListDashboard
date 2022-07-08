@@ -59,12 +59,10 @@ const ContactsTableMainContainer = styled.div`
 `;
 
 const Table = styled.table`
-  min-width: 180px;
-  max-width: 250px;
-  margin: 15px;
-  /* border: 2px solid red; */
+  width: 100%;
   @media screen and (min-width: 568px) {
-    max-width: 500px;
+    width: 50%;
+    max-width: 350px;
   }
 `;
 const TableHeader = styled.thead`
@@ -169,7 +167,9 @@ const TabelAndChatOrDetailsContainer = styled.div`
   flex-wrap: wrap;
   width: 100%;
   /* border: 2px solid black; */
+  padding: 10px;
   @media screen and (min-width: 567px) {
+    justify-content: space-between;
     max-width: 900px;
     font-size: 20px;
   }
@@ -198,10 +198,10 @@ const Input = styled.input`
 
 const TabsContainer = styled(Tabs)`
   width: 100%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin: 10px;
   @media screen and (min-width: 658px) {
-    width: auto;
+    width: 50%;
     margin: 12px;
   }
 `;
