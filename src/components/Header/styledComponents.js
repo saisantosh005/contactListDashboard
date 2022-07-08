@@ -29,6 +29,16 @@ const AddButton = styled.button`
 
 const SelectUserContainer = styled.div``;
 const NotificationIconContainer = styled.div``;
+const Select = styled.select`
+  border: none;
+  outline: none;
+  border-radius: 20px;
+`;
+const Option = styled.option`
+  border: none;
+  border-radius: 5px;
+  padding: 2px;
+`;
 
 export {
   HeaderMainContainer,
@@ -36,5 +46,7 @@ export {
   ButtonAndIconContainer,
   AddButton,
   SelectUserContainer,
-  NotificationIconContainer
+  NotificationIconContainer,
+  Select,
+  Option
 };

@@ -6,7 +6,9 @@ import {
   ButtonAndIconContainer,
   HeaderMainContainer,
   NotificationIconContainer,
-  SearchIconContainer
+  SearchIconContainer,
+  Select,
+  Option
 } from "./styledComponents";
 
 class Header extends Component {
@@ -18,6 +20,10 @@ class Header extends Component {
         </SearchIconContainer>
         <ButtonAndIconContainer>
           <AddButton>+ Add</AddButton>
+          <Select>
+            <Option>Gekk</Option>
+            <Option>Hekja</Option>
+          </Select>
           <NotificationIconContainer>
             <AiOutlineBell />
           </NotificationIconContainer>
