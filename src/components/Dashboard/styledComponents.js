@@ -9,7 +9,7 @@ const DashBoaderMainContainer = styled.div`
   border: 2px solid red;
 `;
 const DashBoardHeaderAndDetailsContainer = styled.div`
-  width: 80vw;
+  width: 100vw;
 `;
 
 export { DashBoaderMainContainer, DashBoardHeaderAndDetailsContainer };

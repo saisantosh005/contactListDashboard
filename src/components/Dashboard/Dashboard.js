@@ -1,7 +1,9 @@
 import { Component } from "react";
 import ContactDetailsCard from "../ContactDetailsCard/ContactDetailsCard";
+import ContactsListTable from "../ContactListTable/ContactListTable";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
+import WelcomeCard from "../WelcomeCard/WelcomeCard";
 import {
   DashBoaderMainContainer,
   DashBoardHeaderAndDetailsContainer
@@ -14,6 +16,9 @@ class Dashboard extends Component {
         <NavBar />
         <DashBoardHeaderAndDetailsContainer>
           <Header />
+
+          <WelcomeCard />
+          <ContactsListTable />
           <ContactDetailsCard />
         </DashBoardHeaderAndDetailsContainer>
       </DashBoaderMainContainer>
