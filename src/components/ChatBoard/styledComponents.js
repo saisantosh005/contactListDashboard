@@ -5,17 +5,14 @@ const ChatBoardMainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background: black;
-  /* min-width: 150px;
-  max-width: 250px; */
   width: 100%;
   margin: 8px;
   padding: 6px;
   border-radius: 15px;
   @media screen and (min-width: 568px) {
-    min-width: 200px;
-    max-width: 300px;
-    margin: 15px;
-    padding: 8px;
+    max-width: 350px;
+    margin: 10px;
+    padding: 10px;
   }
 `;
 const ChardBoardChatContainer = styled.div`
@@ -23,15 +20,14 @@ const ChardBoardChatContainer = styled.div`
   flex-direction: column;
   background-color: #edede6;
   align-items: flex-start;
+  align-self: stretch;
   flex-grow: 1;
-  width: 90%;
   max-height: 200px;
   padding: 10px;
   border-radius: 15px;
   overflow: auto;
   @media screen and (min-width: 568px) {
-    width: 250px;
-    max-width: 300px;
+    max-width: 400px;
   }
 `;
 const LogoAndTextContainer = styled.div`
@@ -87,8 +83,8 @@ const InputAndButtonConatiner = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-self: stretch;
   flex-grow: 1;
-  width: 90%;
   max-width: 300px;
   padding: 4px 6px;
   @media screen and (min-width: 568px) {

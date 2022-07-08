@@ -141,8 +141,6 @@ const NameEmailContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
-  /* border: 2px solid red; */
 `;
 const Name = styled.h1`
   font-size: 14px;
@@ -166,24 +164,12 @@ const TabelAndChatOrDetailsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  /* border: 2px solid black; */
   padding: 10px;
   @media screen and (min-width: 567px) {
     justify-content: space-between;
     max-width: 900px;
     font-size: 20px;
   }
-`;
-
-const LabelAndInputContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 10px;
-`;
-const Label = styled.label`
-  font-family: sans-serif;
-  font-size: 16px;
-  width: 80px;
 `;
 
 const Input = styled.input`
@@ -226,8 +212,6 @@ export {
   Name,
   Email,
   TabelAndChatOrDetailsContainer,
-  LabelAndInputContainer,
-  Label,
   TabsContainer
   // ButtonContainer
 };

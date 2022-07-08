@@ -12,7 +12,7 @@ const ContactDetailsCardMainContainer = styled.div`
   padding: 5px;
   margin: 4px;
   width: 100%;
-  max-width: 240px;
+  max-width: 350px;
   border-radius: 8px;
   @media screen and (min-width: 568px) {
     padding: 10px;

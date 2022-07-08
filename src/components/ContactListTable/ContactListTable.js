@@ -1,13 +1,11 @@
 import { Component } from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 import ContactDetailsCard from "../ContactDetailsCard/ContactDetailsCard";
 // import App from "../../App";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
-
-import Modal from "react-modal";
+import { Tab, TabList, TabPanel } from "react-tabs";
 import { FiEdit2 } from "react-icons/fi";
+import { AiOutlineSearch } from "react-icons/ai";
 import { BsChatSquareQuote } from "react-icons/bs";
+import "react-tabs/style/react-tabs.css";
 
 import {
   SearchAndButtonContainer,
@@ -29,12 +27,11 @@ import {
   Name,
   Email,
   TabelAndChatOrDetailsContainer,
-  LabelAndInputContainer,
-  Label,
   TabsContainer
   // ButtonContainer
 } from "./styledComponents";
 import ChatBoard from "../ChatBoard/ChatBoard";
+import ModalCard from "../ModalCard/ModalCard";
 // Modal.setAppElement(App);
 
 const data = [
@@ -228,9 +225,11 @@ class ContactsListTable extends Component {
       selectedDetail: data.filter(
         (item) => item.userId === props.selectedUser
       )[0].contactList[0],
-      showModal: false
+      showModal: false,
+      updatedData: ""
     };
   }
+
   handleOpenModal = () => {
     this.setState({ showModal: true });
   };
@@ -238,21 +237,30 @@ class ContactsListTable extends Component {
   handleCloseModal = () => {
     this.setState({ showModal: false });
   };
+  updateContactList = (details) => {
+    // this.conso
+    const { data } = this.state;
+    const { selectedUser } = this.props;
+    const listData = data.filter((item) => item.userId === selectedUser);
+    const { contactList } = listData[0];
+    const newContactList = [...contactList, details];
+    const updatedUser = { ...listData, contactList: newContactList };
+    // console.log(updatedUser, "asdf");
+    const ownData = data.filter((item) => item.userId !== selectedUser);
+    this.setState({
+      data: [...ownData, updatedUser]
+      // updatedData: updatedUser
+    });
+    console.log(details);
+  };
   onClickContact = (data) => {
     this.setState({
       selectedDetail: data
     });
   };
 
-  onChangeName = () => {};
-
-  onChangePhone = () => {};
-  onChangeEmail = () => {};
-  onChangeCompany = () => {};
-  onSaveDetails = () => {};
-  onChangeAddress = () => {};
-
   renderSearchAndAddContacts = () => {
+    const { showModal } = this.state;
     return (
       <SearchAndButtonContainer>
         <SearchContainer>
@@ -260,56 +268,11 @@ class ContactsListTable extends Component {
           <AiOutlineSearch />
         </SearchContainer>
         <Button onClick={this.handleOpenModal}>+ Add Contact</Button>
-        <Modal
-          isOpen={this.state.showModal}
-          contentLabel="Minimal Modal Example"
-        >
-          <LabelAndInputContainer>
-            <Label>Name</Label>
-            <Input
-              type="text"
-              onChange={this.onChangeName}
-              placeholder="Name"
-            />
-          </LabelAndInputContainer>
-
-          <LabelAndInputContainer>
-            <Label>Email</Label>
-            <Input
-              type="email"
-              onChange={this.onChangeEmail}
-              placeholder="Email"
-            />
-          </LabelAndInputContainer>
-
-          <LabelAndInputContainer>
-            <Label>Phone</Label>
-            <Input
-              type="phone"
-              onChange={this.onChangePhone}
-              placeholder="Phone"
-            />
-          </LabelAndInputContainer>
-
-          <LabelAndInputContainer>
-            <Label>Company</Label>
-            <Input
-              type="text"
-              onChange={this.onChangeCompany}
-              placeholder="Company"
-            />
-          </LabelAndInputContainer>
-          <LabelAndInputContainer>
-            <Label>Address</Label>
-            <Input
-              type="text"
-              onChange={this.onChangeAddress}
-              placeholder="Address"
-            />
-          </LabelAndInputContainer>
-          <Button onClick={this.onSaveDetails}>Save</Button>
-          <Button onClick={this.handleCloseModal}>Close</Button>
-        </Modal>
+        <ModalCard
+          showModal={showModal}
+          updateContactList={this.updateContactList}
+          handleCloseModal={this.handleCloseModal}
+        />
       </SearchAndButtonContainer>
     );
   };
