@@ -13,6 +13,7 @@ import {
 
 class Header extends Component {
   render() {
+    const { users, onChangeSelect } = this.props;
     return (
       <HeaderMainContainer>
         <SearchIconContainer>
@@ -20,9 +21,12 @@ class Header extends Component {
         </SearchIconContainer>
         <ButtonAndIconContainer>
           <AddButton>+ Add</AddButton>
-          <Select>
-            <Option>Gekk</Option>
-            <Option>Hekja</Option>
+          <Select onChange={onChangeSelect}>
+            {users.map((item) => (
+              <Option value={item.id} id={item.id}>
+                {item.name}
+              </Option>
+            ))}
           </Select>
           <NotificationIconContainer>
             <AiOutlineBell />

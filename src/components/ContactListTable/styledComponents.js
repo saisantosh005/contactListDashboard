@@ -12,8 +12,9 @@ const SearchContainer = styled.div`
   background-color: #ded6d3;
   border-radius: 8px;
   padding: 8px;
+  margin-right: 20px;
 `;
-const Input = styled.input`
+const SearchInput = styled.input`
   font-size: 15px;
   font-family: sans-serif;
   background-color: inherit;
@@ -26,9 +27,9 @@ const Button = styled.button`
   color: white;
   background-image: linear-gradient(to right, #f0520a, #f00a71);
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 8px;
-  margin-left: 20px;
+  margin-right: 20px;
 `;
 const ContactsTableMainContainer = styled.div``;
 
@@ -94,9 +95,34 @@ const Email = styled.p`
   margin: 0px;
 `;
 const TabelAndChatOrDetailsContainer = styled.div``;
+
+const LabelAndInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 10px;
+`;
+const Label = styled.label`
+  font-family: sans-serif;
+  font-size: 16px;
+  width: 80px;
+`;
+
+const Input = styled.input`
+  font-size: 15px;
+  font-family: sans-serif;
+  background-color: #ded6d3;
+  border-radius: 10px;
+  padding: 8px;
+  border: none;
+  outline: none;
+`;
+// const ButtonContainer = styled.div`
+//   border: 2px solid red;
+// `;
 export {
   SearchAndButtonContainer,
   SearchContainer,
+  SearchInput,
   Input,
   Button,
   ContactsTableMainContainer,
@@ -112,5 +138,8 @@ export {
   NameEmailContainer,
   Name,
   Email,
-  TabelAndChatOrDetailsContainer
+  TabelAndChatOrDetailsContainer,
+  LabelAndInputContainer,
+  Label
+  // ButtonContainer
 };
