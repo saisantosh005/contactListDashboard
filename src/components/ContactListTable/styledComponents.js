@@ -34,20 +34,22 @@ const Button = styled.button`
 const ContactsTableMainContainer = styled.div``;
 
 const Table = styled.table`
-  width: 350px;
+  /* width: 350px; */
   margin: 20px;
 `;
 const TableHeader = styled.thead`
   background-color: #ccc4c8;
 `;
 const Th = styled.th`
+  text-align: left;
+  min-width: 100px;
   font-size: 14px;
   font-family: sans-serif;
   color: #524f50;
   padding: 6px;
 `;
 const TableBody = styled.div`
-  width: 100%;
+  /* width: 100%; */
   min-height: 250px;
   max-height: 400px;
   overflow: auto;
@@ -55,12 +57,13 @@ const TableBody = styled.div`
 const Tr = styled.tr`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 8px;
 `;
 const Td = styled.td`
-  display: flex;
+  min-width: ${(props) => (props.checkBox ? "30px" : "100px")};
   flex-wrap: wrap;
-  /* border: 2px solid red; */
+  margin-left: 15px;
 `;
 const InfoContainer = styled.div`
   display: flex;
@@ -81,7 +84,13 @@ const LogoName = styled.p`
   padding: 0px;
   margin: 0px;
 `;
-const NameEmailContainer = styled.div``;
+const NameEmailContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* border: 2px solid red; */
+`;
 const Name = styled.h1`
   font-size: 18px;
   font-family: sans-serif;

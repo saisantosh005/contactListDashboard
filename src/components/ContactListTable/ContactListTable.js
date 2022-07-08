@@ -2,7 +2,13 @@ import { Component } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import ContactDetailsCard from "../ContactDetailsCard/ContactDetailsCard";
 // import App from "../../App";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+
 import Modal from "react-modal";
+import { FiEdit2 } from "react-icons/fi";
+import { BsChatSquareQuote } from "react-icons/bs";
+
 import {
   SearchAndButtonContainer,
   SearchContainer,
@@ -24,9 +30,11 @@ import {
   Email,
   TabelAndChatOrDetailsContainer,
   LabelAndInputContainer,
-  Label
+  Label,
+  ButtonContainer
   // ButtonContainer
 } from "./styledComponents";
+import ChatBoard from "../ChatBoard/ChatBoard";
 // Modal.setAppElement(App);
 
 const data = [
@@ -320,7 +328,7 @@ class ContactsListTable extends Component {
           id={item.id}
           key={item.id}
         >
-          <Td>
+          <Td checkBox>
             <Input type="checkbox" />
           </Td>
           <Td>
@@ -334,7 +342,7 @@ class ContactsListTable extends Component {
               </NameEmailContainer>
             </InfoContainer>
           </Td>
-          <Td>{item.company}</Td>
+          <Td last>{item.company}</Td>
         </Tr>
       );
     });
@@ -358,7 +366,24 @@ class ContactsListTable extends Component {
               <TableBody>{this.renderContactListTable()}</TableBody>
             </tbody>
           </Table>
-          <ContactDetailsCard details={selectedDetail} />
+          <Tabs>
+            <TabList>
+              <Tab>
+                <FiEdit2 />
+              </Tab>
+              <Tab>
+                <BsChatSquareQuote />
+              </Tab>
+            </TabList>
+
+            <TabPanel>
+              <ContactDetailsCard details={selectedDetail} />
+            </TabPanel>
+            <TabPanel>
+              <h2>Any content 2</h2>
+              <ChatBoard />
+            </TabPanel>
+          </Tabs>
         </TabelAndChatOrDetailsContainer>
       </ContactsTableMainContainer>
     );

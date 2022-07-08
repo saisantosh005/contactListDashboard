@@ -1,11 +1,16 @@
 import styled from "styled-components";
+import { FiEdit2 } from "react-icons/fi";
+
+import { BsChatSquareQuote } from "react-icons/bs";
 
 const ContactDetailsCardMainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: #e0e8df;
-  padding: 10px;
+  padding: 5px;
   margin: 10px;
-  max-width: 350px;
-  /* border: 2px solid red; */
+  max-width: 300px;
   border-radius: 8px;
 `;
 const LogoAndNameContainer = styled.div`
@@ -13,15 +18,18 @@ const LogoAndNameContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 15px;
 `;
 
 const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  padding: 5px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  padding: 5px;
+  margin-bottom: 5px;
   background-color: lightcoral;
 `;
 const LogoName = styled.p`
@@ -29,7 +37,10 @@ const LogoName = styled.p`
   font-weight: bold;
 `;
 
-const DetailsContainer = styled.div``;
+const DetailsContainer = styled.div`
+  padding: 10px;
+  margin-left: 10px;
+`;
 const LightText = styled.td`
   font-size: 16px;
   color: #9aa199;
@@ -40,6 +51,10 @@ const BoldText = styled.td`
   font-family: "Roboto";
 `;
 const TextContainer = styled.div``;
+
+const ButtonContainer = styled.div``;
+const EditIcon = styled(FiEdit2)``;
+const ChatIcon = styled(BsChatSquareQuote)``;
 export {
   ContactDetailsCardMainContainer,
   LogoAndNameContainer,
@@ -48,5 +63,8 @@ export {
   BoldText,
   LightText,
   DetailsContainer,
-  TextContainer
+  TextContainer,
+  ButtonContainer,
+  EditIcon,
+  ChatIcon
 };
