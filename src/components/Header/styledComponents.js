@@ -3,24 +3,30 @@ import styled from "styled-components";
 const HeaderMainContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  flex-grow: 1;
+  width: 100%;
   border-bottom: 2px solid lightgray;
+  padding: 10px;
 `;
 const SearchIconContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: lightgray;
   border-radius: 50%;
   padding: 5px;
-  background-color: lightgray;
 `;
 const ButtonAndIconContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-grow: 1;
+  min-width: 100px;
+  max-width: 150px;
   padding: 2px;
-  width: 40%;
-  max-width: 300px;
+  @media screen and (min-width: 768px) {
+    max-width: 200px;
+  }
 `;
 const AddButton = styled.button`
   background: none;
@@ -28,7 +34,6 @@ const AddButton = styled.button`
 `;
 
 const SelectUserContainer = styled.div``;
-const NotificationIconContainer = styled.div``;
 const Select = styled.select`
   border: none;
   outline: none;
@@ -37,8 +42,9 @@ const Select = styled.select`
 const Option = styled.option`
   border: none;
   border-radius: 5px;
-  padding: 2px;
+  padding: 20px;
 `;
+const NotificationIconContainer = styled.div``;
 
 export {
   HeaderMainContainer,

@@ -3,14 +3,36 @@ import styled from "styled-components";
 const ChatBoardMainContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  align-items: center;
+  background: black;
+  min-width: 150px;
+  max-width: 250px;
+  margin: 8px;
+  padding: 6px;
+  border-radius: 15px;
+  @media screen and (min-width: 568px) {
+    min-width: 200px;
+    max-width: 300px;
+    margin: 15px;
+    padding: 8px;
+  }
 `;
 const ChardBoardChatContainer = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: #edede6;
   align-items: flex-start;
-  width: 300px;
+  flex-grow: 1;
+  width: 200px;
+  max-width: 220px;
+  max-height: 200px;
   padding: 10px;
+  border-radius: 15px;
+  overflow: auto;
+  @media screen and (min-width: 568px) {
+    width: 250px;
+    max-width: 300px;
+  }
 `;
 const LogoAndTextContainer = styled.div`
   display: flex;
@@ -25,12 +47,17 @@ const LogoContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #d6c913;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   padding: 2px;
   margin-right: ${(props) => (props.status === "to" ? "5px" : "0px")};
   margin-left: ${(props) => (props.status === "to" ? "0px" : "5px")};
+  @media screen and (min-width: 568px) {
+    width: 22px;
+    height: 22px;
+    padding: 5px;
+  }
 `;
 const Logo = styled.p`
   font-size: 12px;
@@ -39,46 +66,74 @@ const Logo = styled.p`
   font-family: sans-serif;
   padding: 0px;
   margin: 0px;
+  @media screen and (min-width: 568px) {
+    font-size: 18px;
+  }
 `;
 const TextBox = styled.p`
   background: #dbdbd0;
-  border-radius: 5px;
+  font-size: 12px;
+  border-radius: 2px;
   font-family: sans-serif;
   padding: 5px 20px 5px 10px;
   margin: 0px;
+  @media screen and (min-width: 568px) {
+    font-size: 16px;
+    padding: 5px;
+  }
 `;
 
 const InputAndButtonConatiner = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding: 4px 6px;
+  max-width: 220px;
+  @media screen and (min-width: 568px) {
+    padding: 6px 8px;
+    font-size: 20px;
+    max-width: 450px;
+  }
 `;
 
 const InputContainer = styled.div`
   display: flex;
   align-items: center;
   background-color: #ded6d3;
-  border-radius: 8px;
-  padding: 8px;
-  margin-right: 20px;
+  flex-grow: 1;
+  border-radius: 4px;
+  padding: 4px;
+  margin-right: 8px;
+  @media screen and (min-width: 568px) {
+    margin-right: 14px;
+    padding: 6px;
+  }
 `;
 const Input = styled.input`
   display: flex;
   flex-wrap: wrap;
-  font-size: 15px;
+  font-size: 12px;
   font-family: sans-serif;
   background-color: inherit;
   border: none;
   outline: none;
+  @media screen and (min-width: 568px) {
+    font-size: 14px;
+  }
 `;
 const Button = styled.button`
-  font-size: 14px;
+  font-size: 12px;
   color: #ffffff;
   background: #ba3627;
   border: none;
   outline: none;
-  padding: 4px 8px;
+  padding: 2px 6px;
   border-radius: 5px;
+  @media screen and (min-width: 568px) {
+    padding: 4px 8px;
+    font-size: 16px;
+  }
 `;
 
 export {

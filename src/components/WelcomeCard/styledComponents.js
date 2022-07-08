@@ -5,7 +5,10 @@ const WelcomeCardMainContainer = styled.div`
   display: flex;
   align-items: center;
   font-family: sans-serif;
-  margin: 18px;
+  margin: 20px 12px;
+  @media screen and (min-width: 768px) {
+    margin: 25px 15px;
+  }
 `;
 
 const IconContainer = styled(TiContacts)`
@@ -15,20 +18,29 @@ const IconContainer = styled(TiContacts)`
   padding: 2px;
   border-radius: 40px;
   margin-right: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 35px;
+  }
 `;
 const TitleAndDescriptionContainer = styled.div``;
 
 const Title = styled.h1`
-  font-size: 20px;
+  font-size: 18px;
   padding: 0px;
   margin: 0px;
   margin-bottom: 2px;
+  @media screen and (min-width: 768px) {
+    font-size: 25px;
+  }
 `;
 const Desription = styled.p`
   font-size: 14px;
   color: #b8b6b2;
   padding: 0px;
   margin: 0px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 export {

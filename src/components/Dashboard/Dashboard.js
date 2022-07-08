@@ -6,7 +6,8 @@ import NavBar from "../NavBar/NavBar";
 import WelcomeCard from "../WelcomeCard/WelcomeCard";
 import {
   DashBoaderMainContainer,
-  DashBoardHeaderAndDetailsContainer
+  DashBoardHeaderAndDetailsContainer,
+  WelcomeCardAndTableContainer
 } from "./styledComponents";
 
 class Dashboard extends Component {
@@ -37,8 +38,10 @@ class Dashboard extends Component {
         <NavBar />
         <DashBoardHeaderAndDetailsContainer>
           <Header users={users} onChangeSelect={this.onChangeSelect} />
-          <WelcomeCard />
-          <ContactsListTable selectedUser={selectedUser} />
+          <WelcomeCardAndTableContainer>
+            <WelcomeCard />
+            <ContactsListTable selectedUser={selectedUser} />
+          </WelcomeCardAndTableContainer>
         </DashBoardHeaderAndDetailsContainer>
       </DashBoaderMainContainer>
     );

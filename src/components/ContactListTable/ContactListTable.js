@@ -31,7 +31,7 @@ import {
   TabelAndChatOrDetailsContainer,
   LabelAndInputContainer,
   Label,
-  ButtonContainer
+  TabsContainer
   // ButtonContainer
 } from "./styledComponents";
 import ChatBoard from "../ChatBoard/ChatBoard";
@@ -366,7 +366,7 @@ class ContactsListTable extends Component {
               <TableBody>{this.renderContactListTable()}</TableBody>
             </tbody>
           </Table>
-          <Tabs>
+          <TabsContainer>
             <TabList>
               <Tab>
                 <FiEdit2 />
@@ -380,10 +380,9 @@ class ContactsListTable extends Component {
               <ContactDetailsCard details={selectedDetail} />
             </TabPanel>
             <TabPanel>
-              <h2>Any content 2</h2>
               <ChatBoard />
             </TabPanel>
-          </Tabs>
+          </TabsContainer>
         </TabelAndChatOrDetailsContainer>
       </ContactsTableMainContainer>
     );

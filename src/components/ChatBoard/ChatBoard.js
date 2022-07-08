@@ -49,10 +49,8 @@ class ChatBoard extends Component {
   };
 
   renderChatData = () => {
-    // console.log(data[0]["status"] === "to");
     const { data } = this.state;
     return data.map((item) => {
-      console.log(item.status === "from");
       return (
         <LogoAndTextContainer status={item.status}>
           <LogoContainer status={item.status}>

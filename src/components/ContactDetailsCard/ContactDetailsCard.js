@@ -5,8 +5,7 @@ import {
   LogoName,
   BoldText,
   LightText,
-  DetailsContainer,
-  TextContainer
+  DetailsContainer
 } from "./styledComponent";
 
 const ContactDetailsCard = (props) => {
@@ -41,7 +40,6 @@ const ContactDetailsCard = (props) => {
             </tr>
           </tbody>
         </table>
-        <TextContainer></TextContainer>
       </DetailsContainer>
     </ContactDetailsCardMainContainer>
   );

@@ -5,11 +5,14 @@ const NavBarMainContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 40px;
+  width: 50px;
   padding-top: 50px;
   min-height: 100vh;
-  /* position: fixed; */
   background-image: linear-gradient(orange, pink);
+  @media screen and (min-width: 768px) {
+    width: 30vw;
+    max-width: 60px;
+  }
 `;
 const IconContainer = styled.div`
   display: flex;
