@@ -5,7 +5,7 @@ const ContactDetailsCardMainContainer = styled.div`
   padding: 10px;
   margin: 10px;
   max-width: 350px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   border-radius: 8px;
 `;
 const LogoAndNameContainer = styled.div`

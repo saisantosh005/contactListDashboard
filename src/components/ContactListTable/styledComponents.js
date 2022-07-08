@@ -45,28 +45,38 @@ const Th = styled.th`
   color: #524f50;
   padding: 6px;
 `;
-const TableBody = styled.tbody`
-  background-color: white;
+const TableBody = styled.div`
   width: 100%;
+  min-height: 250px;
+  max-height: 400px;
+  overflow: auto;
 `;
 const Tr = styled.tr`
   display: flex;
   justify-content: space-between;
+  padding: 8px;
 `;
 const Td = styled.td`
+  display: flex;
+  flex-wrap: wrap;
   /* border: 2px solid red; */
 `;
 const InfoContainer = styled.div`
   display: flex;
+  justify-content: flex-start;
+  text-align: left;
   align-items: center;
 `;
 const LogoContainer = styled.div`
-  background-color: lightgray;
+  background-color: ${(props) => props.color};
   border-radius: 50%;
   padding: 8px;
   margin-right: 10px;
 `;
 const LogoName = styled.p`
+  font-size: 15px;
+  font-family: sans-serif;
+  color: white;
   padding: 0px;
   margin: 0px;
 `;
@@ -83,7 +93,7 @@ const Email = styled.p`
   padding: 0px;
   margin: 0px;
 `;
-
+const TabelAndChatOrDetailsContainer = styled.div``;
 export {
   SearchAndButtonContainer,
   SearchContainer,
@@ -101,5 +111,6 @@ export {
   LogoName,
   NameEmailContainer,
   Name,
-  Email
+  Email,
+  TabelAndChatOrDetailsContainer
 };

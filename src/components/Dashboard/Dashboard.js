@@ -10,16 +10,21 @@ import {
 } from "./styledComponents";
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: {}
+    };
+  }
+
   render() {
     return (
       <DashBoaderMainContainer>
         <NavBar />
         <DashBoardHeaderAndDetailsContainer>
           <Header />
-
           <WelcomeCard />
           <ContactsListTable />
-          <ContactDetailsCard />
         </DashBoardHeaderAndDetailsContainer>
       </DashBoaderMainContainer>
     );

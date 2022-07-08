@@ -6,7 +6,7 @@ const DashBoaderMainContainer = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 0px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 const DashBoardHeaderAndDetailsContainer = styled.div`
   width: 100vw;

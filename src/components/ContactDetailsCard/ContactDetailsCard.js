@@ -10,12 +10,13 @@ import {
 } from "./styledComponent";
 
 const ContactDetailsCard = (props) => {
-  const { name, email, phone, company, address } = props;
+  const { name, email, phone, company, address } = props.details;
+
   return (
     <ContactDetailsCardMainContainer>
       <LogoAndNameContainer>
         <LogoContainer>
-          <LogoName>{"santosh".slice(0, 2)}</LogoName>
+          <LogoName>{name.slice(0, 2)}</LogoName>
         </LogoContainer>
         <BoldText>{name}</BoldText>
         <LightText>{company}</LightText>
@@ -35,9 +36,8 @@ const ContactDetailsCard = (props) => {
               <LightText>Company</LightText> <BoldText>{company}</BoldText>
             </tr>
             <tr>
-              <LightText>
-                Address <BoldText>{address}</BoldText>
-              </LightText>
+              <LightText>Address </LightText>
+              <BoldText>{address}</BoldText>
             </tr>
           </tbody>
         </table>
