@@ -32,10 +32,74 @@ const Button = styled.button`
 `;
 const ContactsTableMainContainer = styled.div``;
 
+const Table = styled.table`
+  width: 350px;
+  margin: 20px;
+`;
+const TableHeader = styled.thead`
+  background-color: #ccc4c8;
+`;
+const Th = styled.th`
+  font-size: 14px;
+  font-family: sans-serif;
+  color: #524f50;
+  padding: 6px;
+`;
+const TableBody = styled.tbody`
+  background-color: white;
+  width: 100%;
+`;
+const Tr = styled.tr`
+  display: flex;
+  justify-content: space-between;
+`;
+const Td = styled.td`
+  /* border: 2px solid red; */
+`;
+const InfoContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const LogoContainer = styled.div`
+  background-color: lightgray;
+  border-radius: 50%;
+  padding: 8px;
+  margin-right: 10px;
+`;
+const LogoName = styled.p`
+  padding: 0px;
+  margin: 0px;
+`;
+const NameEmailContainer = styled.div``;
+const Name = styled.h1`
+  font-size: 18px;
+  font-family: sans-serif;
+  padding: 0px;
+  margin: 0px;
+`;
+const Email = styled.p`
+  font-size: 12px;
+  font-family: sans-serif;
+  padding: 0px;
+  margin: 0px;
+`;
+
 export {
   SearchAndButtonContainer,
   SearchContainer,
   Input,
   Button,
-  ContactsTableMainContainer
+  ContactsTableMainContainer,
+  Table,
+  TableHeader,
+  Th,
+  TableBody,
+  Td,
+  Tr,
+  InfoContainer,
+  LogoContainer,
+  LogoName,
+  NameEmailContainer,
+  Name,
+  Email
 };
