@@ -12,7 +12,6 @@ import { FiEdit2 } from "react-icons/fi";
 
 const ContactDetailsCard = (props) => {
   const { name, email, phone, company, address } = props.details;
-
   return (
     <ContactDetailsCardMainContainer>
       <IconContainer>

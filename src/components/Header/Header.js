@@ -23,7 +23,7 @@ class Header extends Component {
           <AddButton>+ Add</AddButton>
           <Select onChange={onChangeSelect}>
             {users.map((item) => (
-              <Option value={item.id} id={item.id}>
+              <Option value={item.id} id={item.id} key={item.id}>
                 {item.name}
               </Option>
             ))}

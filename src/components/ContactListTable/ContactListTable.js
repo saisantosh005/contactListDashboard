@@ -227,7 +227,8 @@ class ContactsListTable extends Component {
     this.state = {
       contactList: [],
       selectedDetail: {},
-      showModal: false
+      showModal: false,
+      editDetails: {}
     };
   }
 
@@ -244,6 +245,7 @@ class ContactsListTable extends Component {
         .contactList[0]
     });
   };
+
   componentDidUpdate(prevProps) {
     if (this.props.selectedUser !== prevProps.selectedUser) {
       this.intializeTheValue(this.props.selectedUser);
@@ -260,30 +262,67 @@ class ContactsListTable extends Component {
 
   updateContactList = (details) => {
     const { contactList } = this.state;
-    this.setState({
-      contactList: [...contactList, details]
-    });
+    const isPreset = contactList.filter((item) => item.id === details.id);
+    if (isPreset.length !== 0) {
+      const updateList = contactList.map((item) =>
+        item.id === details.id ? details : item
+      );
+      this.setState({
+        contactList: updateList
+      });
+    } else {
+      this.setState({
+        contactList: [...contactList, details]
+      });
+    }
   };
 
-  onClickContact = (data) => {
+  onClickContact = (event, data) => {
+    event.stopPropagation();
     this.setState({
       selectedDetail: data
     });
   };
 
+  onOpenModal = () => {
+    this.setState({
+      editDetails: {
+        id: 12434,
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        address: ""
+      }
+    });
+  };
+  onEditIconClick = (details) => {
+    this.setState({
+      editDetails: details
+    });
+  };
   renderSearchAndAddContacts = () => {
-    const { showModal } = this.state;
+    console.log("ser");
+    const { showModal, editDetails } = this.state;
     return (
       <SearchAndButtonContainer>
         <SearchContainer>
           <SearchInput type="text" placeholder="Search Contact" />
           <AiOutlineSearch />
         </SearchContainer>
-        <Button onClick={this.handleOpenModal}>+ Add Contact</Button>
+        <Button
+          onClick={() => {
+            this.handleOpenModal();
+            this.onOpenModal();
+          }}
+        >
+          + Add Contact
+        </Button>
         <ModalCard
           showModal={showModal}
           updateContactList={this.updateContactList}
           handleCloseModal={this.handleCloseModal}
+          details={editDetails}
         />
       </SearchAndButtonContainer>
     );
@@ -294,25 +333,36 @@ class ContactsListTable extends Component {
   };
 
   renderContactListTable = () => {
-    const { contactList } = this.state;
+    console.log("changed");
+    const { contactList, showModal } = this.state;
     return contactList.map((item) => {
       var colors = ["#74609e", "#7880de", "#e887b7", "#709e60", "#9e6760"];
       var random_color = colors[Math.floor(Math.random() * colors.length)];
       return (
         <Tr
-          onClick={(event) => this.onClickContact(item)}
+          onClick={(event) => this.onClickContact(event, item)}
           id={item.id}
           key={item.id}
         >
           <Td checkBox>
             <IconContainer onClick={this.onClickEdit}>
-              <FiEdit2 onClick={this.handleOpenModal} />
-              <ModalCard details={item} />
+              <FiEdit2
+                onClick={() => {
+                  this.handleOpenModal();
+                  this.onEditIconClick(item);
+                }}
+              />
+              {/* <ModalCard
+                showModal={showModal}
+                updateContactList={this.editContact}
+                handleCloseModal={this.handleCloseModal}
+                details={item}
+              /> */}
             </IconContainer>
           </Td>
           <Td>
             <InfoContainer>
-              <LogoContainer color={random_color}>
+              <LogoContainer color={colors[0]}>
                 <LogoName>{item.name.slice(0, 2)}</LogoName>
               </LogoContainer>
               <NameEmailContainer>
@@ -321,7 +371,7 @@ class ContactsListTable extends Component {
               </NameEmailContainer>
             </InfoContainer>
           </Td>
-          <Td last>{item.company}</Td>
+          <Td>{item.company}</Td>
         </Tr>
       );
     });
@@ -342,9 +392,7 @@ class ContactsListTable extends Component {
                   <Th>Company</Th>
                 </Tr>
               </TableHeader>
-              <tbody>
-                <TableBody>{this.renderContactListTable()}</TableBody>
-              </tbody>
+              <TableBody>{this.renderContactListTable()}</TableBody>
             </Table>
           ) : (
             <LoadingContainer>

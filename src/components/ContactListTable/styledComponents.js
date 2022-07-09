@@ -78,7 +78,7 @@ const Th = styled.th`
     font-size: 16px;
   }
 `;
-const TableBody = styled.div`
+const TableBody = styled.tbody`
   min-height: 200px;
   max-height: 300px;
   overflow: auto;

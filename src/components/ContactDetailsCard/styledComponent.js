@@ -23,6 +23,7 @@ const ContactDetailsCardMainContainer = styled.div`
 const IconContainer = styled.div`
   font-size: 15px;
   text-align: right;
+  margin: 8px;
 `;
 
 const LogoAndNameContainer = styled.div`

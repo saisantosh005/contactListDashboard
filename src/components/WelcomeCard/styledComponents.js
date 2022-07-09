@@ -7,7 +7,7 @@ const WelcomeCardMainContainer = styled.div`
   font-family: sans-serif;
   margin: 20px 12px;
   @media screen and (min-width: 768px) {
-    margin: 25px 15px;
+    margin: 30px 15px;
   }
 `;
 
@@ -30,7 +30,7 @@ const Title = styled.h1`
   margin: 0px;
   margin-bottom: 2px;
   @media screen and (min-width: 768px) {
-    font-size: 25px;
+    font-size: 22px;
   }
 `;
 const Desription = styled.p`
@@ -39,7 +39,7 @@ const Desription = styled.p`
   padding: 0px;
   margin: 0px;
   @media screen and (min-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 

@@ -1,7 +1,5 @@
 import { Component } from "react";
 
-import Modal from "react-modal";
-
 import {
   ModalMainContainer,
   ModalContainer,
@@ -16,6 +14,7 @@ class ModalCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       name: "",
       phone: "",
       email: "",
@@ -33,9 +32,9 @@ class ModalCard extends Component {
 
   initializeModal = () => {
     const { details } = this.props;
-    console.log(details, "San");
-    const { name, email, phone, company, address } = details;
+    const { id, name, email, phone, company, address } = details;
     this.setState({
+      id,
       name,
       email,
       phone,
@@ -71,20 +70,28 @@ class ModalCard extends Component {
     });
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.details !== prevProps.details) {
+      this.initializeModal(this.props.details);
+    }
+  }
+
   onSaveDetails = (event) => {
-    const { name, phone, email, address, company } = this.state;
+    const { id, name, phone, email, address, company } = this.state;
     const { updateContactList, handleCloseModal } = this.props;
     const newObject = {
-      id: 123,
+      id,
       name,
       phone,
       email,
       address,
       company
     };
+
     updateContactList(newObject);
     this.setState(
       {
+        id: "",
         name: "",
         phone: "",
         email: "",
@@ -96,10 +103,10 @@ class ModalCard extends Component {
   };
 
   render() {
+    // console.log(this.props.details, "H");
     const { handleCloseModal, showModal } = this.props;
-    console.log("called");
     const { name, phone, email, address, company } = this.state;
-    console.log(name, phone, email, address, company);
+
     return (
       <ModalMainContainer
         isOpen={showModal}
