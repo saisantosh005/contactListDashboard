@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Tabs } from "react-tabs";
 
 const SearchAndButtonContainer = styled.div`
   display: flex;
@@ -9,7 +9,6 @@ const SearchAndButtonContainer = styled.div`
   margin: 10px;
   @media screen and (min-width: 568px) {
     max-width: 400px;
-    /* margin-left: 20px; */
   }
 `;
 const SearchContainer = styled.div`
@@ -89,6 +88,9 @@ const Tr = styled.tr`
   justify-content: space-between;
   align-items: center;
   padding: 4px;
+  &:hover {
+    background-color: ${(props) => (props.header ? "" : "lightblue")};
+  }
   @media screen and (min-width: 568px) {
     padding: 8px;
   }
@@ -191,7 +193,8 @@ const TabsContainer = styled(Tabs)`
   margin: 10px;
   @media screen and (min-width: 658px) {
     width: 50%;
-    margin: 12px;
+    margin: 0px;
+    margin-left: 20px;
   }
 `;
 

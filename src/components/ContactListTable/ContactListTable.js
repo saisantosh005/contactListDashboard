@@ -37,7 +37,6 @@ import {
 } from "./styledComponents";
 import ChatBoard from "../ChatBoard/ChatBoard";
 import ModalCard from "../ModalCard/ModalCard";
-// Modal.setAppElement(App);
 import { dataIn } from "../../MockData/MockData";
 
 class ContactsListTable extends Component {
@@ -215,7 +214,7 @@ class ContactsListTable extends Component {
             <TableContainer>
               <Table>
                 <TableHeader>
-                  <Tr>
+                  <Tr header>
                     <Th>+</Th>
                     <Th>Basic Info</Th>
                     <Th>Company</Th>

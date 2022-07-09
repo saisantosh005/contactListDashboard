@@ -2,13 +2,12 @@ import styled from "styled-components";
 
 const DashBoaderMainContainer = styled.div`
   display: flex;
-  width: 100vw;
   min-height: 100vh;
   padding: 0px;
   margin: 0px;
 `;
 const DashBoardHeaderAndDetailsContainer = styled.div`
-  width: 100%;
+  flex-grow: 1;
   padding: 0px;
 `;
 const WelcomeCardAndTableContainer = styled.div`
