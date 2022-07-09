@@ -3,11 +3,25 @@ import { Component } from "react";
 import Modal from "react-modal";
 
 import {
+  ModalMainContainer,
+  ModalContainer,
   Input,
   Button,
   LabelAndInputContainer,
-  Label
+  Label,
+  ButtonContainer
 } from "./styledComponents";
+
+const customStyles = {
+  content: {
+    top: "100%",
+    left: "100%",
+    right: "",
+    bottom: "auto"
+    // marginRight: "-50%",
+    // transform: "translate(-50%, -50%)"
+  }
+};
 
 class ModalCard extends Component {
   constructor(props) {
@@ -29,22 +43,22 @@ class ModalCard extends Component {
 
   onChangePhone = (event) => {
     this.setState({
-      phone: event.target.phone
+      phone: event.target.value
     });
   };
   onChangeEmail = (event) => {
     this.setState({
-      email: event.target.email
+      email: event.target.value
     });
   };
   onChangeCompany = (event) => {
     this.setState({
-      company: event.target.company
+      company: event.target.value
     });
   };
   onChangeAddress = (event) => {
     this.setState({
-      address: event.target.address
+      address: event.target.value
     });
   };
 
@@ -77,58 +91,79 @@ class ModalCard extends Component {
 
     const { name, phone, email, address, company } = this.state;
     return (
-      <Modal isOpen={showModal} contentLabel="Minimal Modal Example">
-        <LabelAndInputContainer>
-          <Label>Name</Label>
-          <Input
-            type="text"
-            onChange={this.onChangeName}
-            placeholder="Name"
-            value={name}
-          />
-        </LabelAndInputContainer>
+      <ModalMainContainer
+        isOpen={showModal}
+        contentLabel="Minimal Modal Example"
+        style={{
+          overlay: {
+            backgroundColor: "papayawhip",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          },
+          content: {
+            color: "lightsteelblue",
+            padding: "10px",
+            overflow: "auto"
+          }
+        }}
+        // style={customStyles}
+      >
+        <ModalContainer>
+          <LabelAndInputContainer>
+            <Label>Name</Label>
+            <Input
+              type="text"
+              onChange={this.onChangeName}
+              placeholder="Name"
+              value={name}
+            />
+          </LabelAndInputContainer>
 
-        <LabelAndInputContainer>
-          <Label>Email</Label>
-          <Input
-            type="email"
-            onChange={this.onChangeEmail}
-            placeholder="Email"
-            value={email}
-          />
-        </LabelAndInputContainer>
+          <LabelAndInputContainer>
+            <Label>Email</Label>
+            <Input
+              type="email"
+              onChange={this.onChangeEmail}
+              placeholder="Email"
+              value={email}
+            />
+          </LabelAndInputContainer>
 
-        <LabelAndInputContainer>
-          <Label>Phone</Label>
-          <Input
-            type="phone"
-            onChange={this.onChangePhone}
-            placeholder="Phone"
-            value={phone}
-          />
-        </LabelAndInputContainer>
+          <LabelAndInputContainer>
+            <Label>Phone</Label>
+            <Input
+              type="phone"
+              onChange={this.onChangePhone}
+              placeholder="Phone"
+              value={phone}
+            />
+          </LabelAndInputContainer>
 
-        <LabelAndInputContainer>
-          <Label>Company</Label>
-          <Input
-            type="text"
-            onChange={this.onChangeCompany}
-            placeholder="Company"
-            value={company}
-          />
-        </LabelAndInputContainer>
-        <LabelAndInputContainer>
-          <Label>Address</Label>
-          <Input
-            type="text"
-            onChange={this.onChangeAddress}
-            placeholder="Address"
-            value={address}
-          />
-        </LabelAndInputContainer>
-        <Button onClick={this.onSaveDetails}>Save</Button>
-        <Button onClick={handleCloseModal}>Close</Button>
-      </Modal>
+          <LabelAndInputContainer>
+            <Label>Company</Label>
+            <Input
+              type="text"
+              onChange={this.onChangeCompany}
+              placeholder="Company"
+              value={company}
+            />
+          </LabelAndInputContainer>
+          <LabelAndInputContainer>
+            <Label>Address</Label>
+            <Input
+              type="text"
+              onChange={this.onChangeAddress}
+              placeholder="Address"
+              value={address}
+            />
+          </LabelAndInputContainer>
+          <ButtonContainer>
+            <Button onClick={this.onSaveDetails}>Save</Button>
+            <Button onClick={handleCloseModal}>Close</Button>
+          </ButtonContainer>
+        </ModalContainer>
+      </ModalMainContainer>
     );
   }
 }

@@ -1,13 +1,58 @@
 import styled from "styled-components";
+import Modal from "react-modal";
 
+const ModalMainContainer = styled(Modal)`
+  background-color: #ffffff;
+  min-height: 150px;
+
+  width: 70%;
+  min-width: 200px;
+  max-width: 300px;
+  @media screen and (min-width: 568px) {
+    width: 50%;
+  }
+`;
+const ModalContainer = styled.div`
+  width: 100%;
+`;
 const Input = styled.input`
-  font-size: 15px;
+  font-size: 12px;
   font-family: sans-serif;
   background-color: #ded6d3;
-  border-radius: 10px;
-  padding: 8px;
+  border-radius: 3px;
+  padding: 4px;
   border: none;
   outline: none;
+  @media screen and (min-width: 568px) {
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+`;
+
+const LabelAndInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 4px;
+  @media screen and (min-width: 568px) {
+    margin: 6px;
+  }
+`;
+const Label = styled.label`
+  font-family: sans-serif;
+  font-size: 10px;
+  width: 60px;
+  @media screen and (min-width: 568px) {
+    font-size: 16px;
+    width: 80px;
+  }
+`;
+
+const ButtonContainer = styled.div`
+  margin: 5px;
+  @media screen and (min-width: 568px) {
+    margin: 10px;
+  }
 `;
 const Button = styled.button`
   font-size: 10px;
@@ -23,15 +68,13 @@ const Button = styled.button`
     padding: 8px;
   }
 `;
-const LabelAndInputContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin: 10px;
-`;
-const Label = styled.label`
-  font-family: sans-serif;
-  font-size: 16px;
-  width: 80px;
-`;
 
-export { Input, Button, LabelAndInputContainer, Label };
+export {
+  ModalContainer,
+  ModalMainContainer,
+  Input,
+  LabelAndInputContainer,
+  Label,
+  ButtonContainer,
+  Button
+};

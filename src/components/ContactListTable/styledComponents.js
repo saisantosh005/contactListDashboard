@@ -105,6 +105,14 @@ const Td = styled.td`
     margin-left: 10px;
   }
 `;
+const LoadingContainer = styled.div`
+  width: 100%;
+  @media screen and (min-width: 568px) {
+    width: 50%;
+    max-width: 350px;
+  }
+`;
+const LoadingText = styled.p``;
 const InfoContainer = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -205,6 +213,8 @@ export {
   TableBody,
   Td,
   Tr,
+  LoadingContainer,
+  LoadingText,
   InfoContainer,
   LogoContainer,
   LogoName,

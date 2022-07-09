@@ -1,10 +1,10 @@
 import { Component } from "react";
-import ContactDetailsCard from "../ContactDetailsCard/ContactDetailsCard";
 // import App from "../../App";
-import { Tab, TabList, TabPanel } from "react-tabs";
 import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsChatSquareQuote } from "react-icons/bs";
+import { Tab, TabList, TabPanel } from "react-tabs";
+import ContactDetailsCard from "../ContactDetailsCard/ContactDetailsCard";
 import "react-tabs/style/react-tabs.css";
 
 import {
@@ -27,7 +27,9 @@ import {
   Name,
   Email,
   TabelAndChatOrDetailsContainer,
-  TabsContainer
+  TabsContainer,
+  LoadingContainer,
+  LoadingText
   // ButtonContainer
 } from "./styledComponents";
 import ChatBoard from "../ChatBoard/ChatBoard";
@@ -221,13 +223,29 @@ class ContactsListTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: data,
-      selectedDetail: data.filter(
-        (item) => item.userId === props.selectedUser
-      )[0].contactList[0],
-      showModal: false,
-      updatedData: ""
+      contactList: [],
+      selectedDetail: {},
+      showModal: false
     };
+  }
+
+  componentDidMount() {
+    const { selectedUser } = this.props;
+    this.intializeTheValue(selectedUser);
+  }
+
+  intializeTheValue = (selectedUser) => {
+    this.setState({
+      contactList: data.filter((item) => item.userId === selectedUser)[0]
+        .contactList,
+      selectedDetail: data.filter((item) => item.userId === selectedUser)[0]
+        .contactList[0]
+    });
+  };
+  componentDidUpdate(prevProps) {
+    if (this.props.selectedUser !== prevProps.selectedUser) {
+      this.intializeTheValue(this.props.selectedUser);
+    }
   }
 
   handleOpenModal = () => {
@@ -237,22 +255,14 @@ class ContactsListTable extends Component {
   handleCloseModal = () => {
     this.setState({ showModal: false });
   };
+
   updateContactList = (details) => {
-    // this.conso
-    const { data } = this.state;
-    const { selectedUser } = this.props;
-    const listData = data.filter((item) => item.userId === selectedUser);
-    const { contactList } = listData[0];
-    const newContactList = [...contactList, details];
-    const updatedUser = { ...listData, contactList: newContactList };
-    // console.log(updatedUser, "asdf");
-    const ownData = data.filter((item) => item.userId !== selectedUser);
+    const { contactList } = this.state;
     this.setState({
-      data: [...ownData, updatedUser]
-      // updatedData: updatedUser
+      contactList: [...contactList, details]
     });
-    console.log(details);
   };
+
   onClickContact = (data) => {
     this.setState({
       selectedDetail: data
@@ -278,10 +288,7 @@ class ContactsListTable extends Component {
   };
 
   renderContactListTable = () => {
-    const { data } = this.state;
-    const { selectedUser } = this.props;
-    const listData = data.filter((item) => item.userId === selectedUser);
-    const { contactList } = listData[0];
+    const { contactList } = this.state;
     return contactList.map((item) => {
       var colors = ["#74609e", "#7880de", "#e887b7", "#709e60", "#9e6760"];
       var random_color = colors[Math.floor(Math.random() * colors.length)];
@@ -312,23 +319,29 @@ class ContactsListTable extends Component {
   };
 
   render() {
-    const { selectedDetail } = this.state;
+    const { selectedDetail, contactList } = this.state;
     return (
       <ContactsTableMainContainer>
         {this.renderSearchAndAddContacts()}
         <TabelAndChatOrDetailsContainer>
-          <Table>
-            <TableHeader>
-              <Tr>
-                <Th>+</Th>
-                <Th>Basic Info</Th>
-                <Th>Company</Th>
-              </Tr>
-            </TableHeader>
-            <tbody>
-              <TableBody>{this.renderContactListTable()}</TableBody>
-            </tbody>
-          </Table>
+          {contactList.length !== 0 ? (
+            <Table>
+              <TableHeader>
+                <Tr>
+                  <Th>+</Th>
+                  <Th>Basic Info</Th>
+                  <Th>Company</Th>
+                </Tr>
+              </TableHeader>
+              <tbody>
+                <TableBody>{this.renderContactListTable()}</TableBody>
+              </tbody>
+            </Table>
+          ) : (
+            <LoadingContainer>
+              <LoadingText>Loading</LoadingText>
+            </LoadingContainer>
+          )}
           <TabsContainer>
             <TabList>
               <Tab>
@@ -340,7 +353,11 @@ class ContactsListTable extends Component {
             </TabList>
 
             <TabPanel>
-              <ContactDetailsCard details={selectedDetail} />
+              {contactList.length !== 0 ? (
+                <ContactDetailsCard details={selectedDetail} />
+              ) : (
+                <LoadingText>Loading...</LoadingText>
+              )}
             </TabPanel>
             <TabPanel>
               <ChatBoard />
