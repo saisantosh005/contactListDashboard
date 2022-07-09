@@ -3,6 +3,8 @@ import { Component } from "react";
 import { FiEdit2 } from "react-icons/fi";
 import { AiOutlineSearch } from "react-icons/ai";
 import { BsChatSquareQuote } from "react-icons/bs";
+import { CgDetailsMore } from "react-icons/cg";
+
 import { Tab, TabList, TabPanel } from "react-tabs";
 import ContactDetailsCard from "../ContactDetailsCard/ContactDetailsCard";
 import "react-tabs/style/react-tabs.css";
@@ -11,7 +13,7 @@ import {
   SearchAndButtonContainer,
   SearchContainer,
   SearchInput,
-  Input,
+  IconContainer,
   Button,
   ContactsTableMainContainer,
   Table,
@@ -287,6 +289,10 @@ class ContactsListTable extends Component {
     );
   };
 
+  onClickEdit = (event) => {
+    event.stopPropagation();
+  };
+
   renderContactListTable = () => {
     const { contactList } = this.state;
     return contactList.map((item) => {
@@ -299,7 +305,10 @@ class ContactsListTable extends Component {
           key={item.id}
         >
           <Td checkBox>
-            <Input type="checkbox" />
+            <IconContainer onClick={this.onClickEdit}>
+              <FiEdit2 onClick={this.handleOpenModal} />
+              <ModalCard details={item} />
+            </IconContainer>
           </Td>
           <Td>
             <InfoContainer>
@@ -345,7 +354,7 @@ class ContactsListTable extends Component {
           <TabsContainer>
             <TabList>
               <Tab>
-                <FiEdit2 />
+                <CgDetailsMore />
               </Tab>
               <Tab>
                 <BsChatSquareQuote />

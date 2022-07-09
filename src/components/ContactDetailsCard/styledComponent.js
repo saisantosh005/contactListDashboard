@@ -20,6 +20,11 @@ const ContactDetailsCardMainContainer = styled.div`
     max-width: 350px;
   }
 `;
+const IconContainer = styled.div`
+  font-size: 15px;
+  text-align: right;
+`;
+
 const LogoAndNameContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -85,8 +90,10 @@ const BoldText = styled.td`
 const ButtonContainer = styled.div``;
 const EditIcon = styled(FiEdit2)``;
 const ChatIcon = styled(BsChatSquareQuote)``;
+
 export {
   ContactDetailsCardMainContainer,
+  IconContainer,
   LogoAndNameContainer,
   LogoContainer,
   LogoName,

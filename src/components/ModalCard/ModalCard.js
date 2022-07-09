@@ -12,17 +12,6 @@ import {
   ButtonContainer
 } from "./styledComponents";
 
-const customStyles = {
-  content: {
-    top: "100%",
-    left: "100%",
-    right: "",
-    bottom: "auto"
-    // marginRight: "-50%",
-    // transform: "translate(-50%, -50%)"
-  }
-};
-
 class ModalCard extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +23,26 @@ class ModalCard extends Component {
       address: ""
     };
   }
+
+  componentDidMount() {
+    const { details } = this.props;
+    if (details) {
+      this.initializeModal();
+    }
+  }
+
+  initializeModal = () => {
+    const { details } = this.props;
+    console.log(details, "San");
+    const { name, email, phone, company, address } = details;
+    this.setState({
+      name,
+      email,
+      phone,
+      company,
+      address
+    });
+  };
 
   onChangeName = (event) => {
     this.setState({
@@ -88,8 +97,9 @@ class ModalCard extends Component {
 
   render() {
     const { handleCloseModal, showModal } = this.props;
-
+    console.log("called");
     const { name, phone, email, address, company } = this.state;
+    console.log(name, phone, email, address, company);
     return (
       <ModalMainContainer
         isOpen={showModal}

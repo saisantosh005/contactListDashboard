@@ -180,12 +180,10 @@ const TabelAndChatOrDetailsContainer = styled.div`
   }
 `;
 
-const Input = styled.input`
-  font-size: 15px;
-  font-family: sans-serif;
-  background-color: #ded6d3;
-  border-radius: 10px;
-  padding: 8px;
+const IconContainer = styled.button`
+  background: none;
+  font-size: 12px;
+  padding: 4px;
   border: none;
   outline: none;
 `;
@@ -204,7 +202,7 @@ export {
   SearchAndButtonContainer,
   SearchContainer,
   SearchInput,
-  Input,
+  IconContainer,
   Button,
   ContactsTableMainContainer,
   Table,

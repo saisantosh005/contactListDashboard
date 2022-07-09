@@ -1,5 +1,6 @@
 import {
   ContactDetailsCardMainContainer,
+  IconContainer,
   LogoAndNameContainer,
   LogoContainer,
   LogoName,
@@ -7,12 +8,16 @@ import {
   LightText,
   DetailsContainer
 } from "./styledComponent";
+import { FiEdit2 } from "react-icons/fi";
 
 const ContactDetailsCard = (props) => {
   const { name, email, phone, company, address } = props.details;
 
   return (
     <ContactDetailsCardMainContainer>
+      <IconContainer>
+        <FiEdit2 />
+      </IconContainer>
       <LogoAndNameContainer>
         <LogoContainer>
           <LogoName>{name.slice(0, 2)}</LogoName>
