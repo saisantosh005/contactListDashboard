@@ -4,7 +4,6 @@ import Modal from "react-modal";
 const ModalMainContainer = styled(Modal)`
   background-color: #ffffff;
   min-height: 150px;
-
   width: 70%;
   min-width: 200px;
   max-width: 300px;
@@ -19,10 +18,10 @@ const Input = styled.input`
   font-size: 12px;
   font-family: sans-serif;
   background-color: #ded6d3;
-  border-radius: 3px;
-  padding: 4px;
   border: none;
+  border-radius: 3px;
   outline: none;
+  padding: 4px;
   @media screen and (min-width: 568px) {
     font-size: 14px;
     padding: 8px;

@@ -6,12 +6,10 @@ const SearchAndButtonContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  width: 100%;
   margin: 10px;
-  margin-left: 15px;
   @media screen and (min-width: 568px) {
     max-width: 400px;
-    margin-left: 20px;
+    /* margin-left: 20px; */
   }
 `;
 const SearchContainer = styled.div`
@@ -20,17 +18,17 @@ const SearchContainer = styled.div`
   background-color: #ded6d3;
   border-radius: 8px;
   padding: 5px;
-  margin-right: 10px;
   margin: 2px;
+  margin-right: 10px;
   @media screen and (min-width: 568px) {
     padding: 8px;
     margin-right: 20px;
   }
 `;
 const SearchInput = styled.input`
+  background-color: inherit;
   font-size: 12px;
   font-family: sans-serif;
-  background-color: inherit;
   border: none;
   outline: none;
   @media screen and (min-width: 568px) {
@@ -38,10 +36,10 @@ const SearchInput = styled.input`
   }
 `;
 const Button = styled.button`
-  font-size: 10px;
-  font-family: sans-serif;
   color: white;
   background-image: linear-gradient(to right, #f0520a, #f00a71);
+  font-size: 10px;
+  font-family: sans-serif;
   border: none;
   border-radius: 6px;
   padding: 6px;
@@ -52,27 +50,27 @@ const Button = styled.button`
   }
 `;
 const ContactsTableMainContainer = styled.div`
-  /* border: 2px solid blue; */
-  width: 100%;
-  padding: 0px;
+  flex-grow: 1;
+  flex-shrink: 1;
   box-sizing: border-box;
 `;
 
 const Table = styled.table`
-  width: 100%;
+  /* flex-grow: 1; */
+  max-width: 350px;
   @media screen and (min-width: 568px) {
     width: 50%;
-    max-width: 350px;
+    max-width: 400px;
   }
 `;
 const TableHeader = styled.thead`
   background-color: #ccc4c8;
 `;
 const Th = styled.th`
-  text-align: left;
+  color: #524f50;
   font-size: 12px;
   font-family: sans-serif;
-  color: #524f50;
+  text-align: left;
   padding: 6px;
   @media screen and (min-width: 568px) {
     font-size: 16px;
@@ -96,10 +94,11 @@ const Tr = styled.tr`
   }
 `;
 const Td = styled.td`
-  min-width: ${(props) => (props.checkBox ? "30px" : "100px")};
+  display: flex;
+  justify-content: ${(props) => (props.last ? "flex-end" : "flex-start")};
   flex-wrap: wrap;
+  min-width: ${(props) => (props.checkBox ? "30px" : "100px")};
   margin-left: 5px;
-  /* border: 2px solid red; */
   @media screen and (min-width: 568px) {
     min-width: ${(props) => (props.checkBox ? "30px" : "100px")};
     margin-left: 10px;
@@ -116,8 +115,8 @@ const LoadingText = styled.p``;
 const InfoContainer = styled.div`
   display: flex;
   justify-content: flex-start;
-  text-align: left;
   align-items: center;
+  text-align: left;
 `;
 const LogoContainer = styled.div`
   display: flex;
@@ -175,22 +174,20 @@ const TabelAndChatOrDetailsContainer = styled.div`
   padding: 10px;
   @media screen and (min-width: 567px) {
     justify-content: space-between;
-    max-width: 900px;
     font-size: 20px;
+    max-width: 900px;
   }
 `;
 
 const IconContainer = styled.button`
-  background: none;
   font-size: 12px;
   padding: 4px;
+  background: none;
   border: none;
-  outline: none;
 `;
 
 const TabsContainer = styled(Tabs)`
   width: 100%;
-  /* border: 2px solid red; */
   margin: 10px;
   @media screen and (min-width: 658px) {
     width: 50%;
@@ -198,6 +195,8 @@ const TabsContainer = styled(Tabs)`
   }
 `;
 
+const TableContainer = styled.div``;
+const TabsContainerBox = styled.div``;
 export {
   SearchAndButtonContainer,
   SearchContainer,
@@ -220,6 +219,7 @@ export {
   Name,
   Email,
   TabelAndChatOrDetailsContainer,
-  TabsContainer
-  // ButtonContainer
+  TabsContainer,
+  TableContainer,
+  TabsContainerBox
 };

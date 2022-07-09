@@ -1,4 +1,5 @@
 import { Component } from "react";
+import uuid from "react-uuid";
 
 import {
   ChatBoardMainContainer,
@@ -14,7 +15,7 @@ import {
 } from "./styledComponents";
 
 const data = [
-  { status: "to", id: 1, message: "Hello" },
+  { status: "to", id: 1, message: "Hella" },
   { status: "to", id: 1, message: "Hello" },
   { status: "from", id: 1, message: "Hello" },
   { status: "to", id: 1, message: "Hello" },
@@ -25,10 +26,29 @@ class ChatBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: data,
+      id: "",
+      data: {},
       chatInput: ""
     };
   }
+  componentDidMount() {
+    this.initialize();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.chataData !== prevProps.chataData) {
+      this.initialize(this.props.chataData);
+    }
+  }
+
+  initialize = () => {
+    const { chataData, id } = this.props;
+    this.setState({
+      id: id,
+      data: chataData
+    });
+  };
+
   onChangeInput = (event) => {
     this.setState({
       chatInput: event.target.value
@@ -36,16 +56,23 @@ class ChatBoard extends Component {
   };
 
   onClickSend = (event) => {
-    const { chatInput, data } = this.state;
+    const { chatInput, data, id } = this.state;
+    const { onSendMessage } = this.props;
     const objectValue = {
-      status: "from",
-      id: 12,
+      status: "to",
+      id: uuid(),
       message: chatInput
     };
-    this.setState({
-      chatInput: "",
-      data: [...data, objectValue]
-    });
+    this.setState(
+      {
+        chatInput: "",
+        data: [...data, objectValue]
+      },
+      () => {
+        const { data } = this.state;
+        onSendMessage(id, data);
+      }
+    );
   };
 
   renderChatData = () => {
@@ -62,11 +89,12 @@ class ChatBoard extends Component {
     });
   };
   render() {
-    const { chatInput } = this.state;
+    const { chatInput, data } = this.state;
+
     return (
       <ChatBoardMainContainer>
         <ChardBoardChatContainer>
-          {this.renderChatData()}
+          {data.length > 0 ? this.renderChatData() : <p>Loading</p>}
         </ChardBoardChatContainer>
 
         <InputAndButtonConatiner>

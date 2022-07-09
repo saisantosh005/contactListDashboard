@@ -9,15 +9,15 @@ const ContactDetailsCardMainContainer = styled.div`
   justify-content: center;
   flex-grow: 1;
   background-color: #e0e8df;
-  padding: 5px;
-  margin: 4px;
-  width: 100%;
   max-width: 350px;
   border-radius: 8px;
+  padding: 5px;
+  margin: 4px;
+  /* width: 100%; */
   @media screen and (min-width: 568px) {
+    max-width: 350px;
     padding: 10px;
     margin: 10px;
-    max-width: 350px;
   }
 `;
 const IconContainer = styled.div`
@@ -41,12 +41,12 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: lightcoral;
   width: 25px;
   height: 25px;
   border-radius: 50%;
   padding: 5px;
   margin-bottom: 5px;
-  background-color: lightcoral;
   @media screen and (min-width: 568px) {
     width: 40px;
     height: 40px;
@@ -54,9 +54,9 @@ const LogoContainer = styled.div`
   }
 `;
 const LogoName = styled.p`
+  font-size: 14px;
   font-family: sans-serif;
   font-weight: 600;
-  font-size: 14px;
   @media screen and (min-width: 568px) {
     font-size: 20px;
   }
@@ -75,14 +75,14 @@ const LightText = styled.td`
   color: #9aa199;
   padding-right: 18px;
   @media screen and (min-width: 568px) {
-    padding-right: 20px;
     font-size: 20px;
+    padding-right: 20px;
   }
 `;
 const BoldText = styled.td`
   color: black;
-  font-family: sans-serif;
   font-size: 14px;
+  font-family: sans-serif;
   @media screen and (min-width: 568px) {
     font-size: 18px;
   }

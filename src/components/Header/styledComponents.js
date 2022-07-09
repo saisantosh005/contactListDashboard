@@ -3,10 +3,10 @@ import styled from "styled-components";
 const HeaderMainContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-grow: 1;
-  width: 100%;
+  /* flex-grow: 1; */
+  /* width:100%; */
   border-bottom: 2px solid lightgray;
-  padding: 10px;
+  padding: 12px 15px;
 `;
 const SearchIconContainer = styled.div`
   display: flex;

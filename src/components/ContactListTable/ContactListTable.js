@@ -31,7 +31,8 @@ import {
   TabelAndChatOrDetailsContainer,
   TabsContainer,
   LoadingContainer,
-  LoadingText
+  LoadingText,
+  TableContainer
   // ButtonContainer
 } from "./styledComponents";
 import ChatBoard from "../ChatBoard/ChatBoard";
@@ -48,7 +49,14 @@ const data = [
         email: "pop@gmail.com",
         phone: 12345,
         company: "popGroup",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "hi" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hell1" },
+          { status: "to", id: 1, message: "Hell2" },
+          { status: "from", id: 1, message: "Hell3" }
+        ]
       },
       {
         id: 2,
@@ -56,7 +64,14 @@ const data = [
         email: "pop1@gmail.com",
         phone: 123456,
         company: "pop1Group",
-        address: "3949324, Hyd"
+        address: "3949324, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "okay" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 3,
@@ -64,7 +79,14 @@ const data = [
         email: "pop2@gmail.com",
         phone: 1234567,
         company: "pop1Group",
-        address: "394932342, Hyd"
+        address: "394932342, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 4,
@@ -72,7 +94,14 @@ const data = [
         email: "pop3@gmail.com",
         phone: 12345678,
         company: "pop3Groupn",
-        address: "39493, Hyde"
+        address: "39493, Hyde",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 5,
@@ -80,7 +109,14 @@ const data = [
         email: "pop4@gmail.com",
         phone: 123456789,
         company: "pop4GroupI",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       }
     ]
   },
@@ -93,7 +129,14 @@ const data = [
         email: "bob@gmail.com",
         phone: 2098345,
         company: "bobGroup",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 2,
@@ -101,7 +144,14 @@ const data = [
         email: "bob1@gmail.com",
         phone: 2098345,
         company: "bob1Group",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 3,
@@ -109,7 +159,14 @@ const data = [
         email: "bob2@gmail.com",
         phone: 2098345,
         company: "bob2Group",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 4,
@@ -117,7 +174,14 @@ const data = [
         email: "bob3@gmail.com",
         phone: 2098345,
         company: "bob3Groupn",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 5,
@@ -125,7 +189,14 @@ const data = [
         email: "bob4@gmail.com",
         phone: 2098345324,
         company: "bob4GroupI",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       }
     ]
   },
@@ -138,7 +209,14 @@ const data = [
         email: "jhon@gmail.com",
         phone: 2098345,
         company: "jhonGroup",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 2,
@@ -146,7 +224,14 @@ const data = [
         email: "jhon1@gmail.com",
         phone: 2098345,
         company: "jhon1Group",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 3,
@@ -154,7 +239,14 @@ const data = [
         email: "jhon2@gmail.com",
         phone: 2098345,
         company: "jhon2Group",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 4,
@@ -162,7 +254,14 @@ const data = [
         email: "jhon3@gmail.com",
         phone: 2098345,
         company: "jhon3Groupn",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 5,
@@ -170,7 +269,14 @@ const data = [
         email: "jhon4@gmail.com",
         phone: 2098345324,
         company: "jhon4GroupI",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       }
     ]
   },
@@ -183,7 +289,14 @@ const data = [
         email: "cran@gmail.com",
         phone: 2098345,
         company: "cranGroup",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 2,
@@ -191,7 +304,14 @@ const data = [
         email: "cran1@gmail.com",
         phone: 2098345,
         company: "cran1Group",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 3,
@@ -199,7 +319,14 @@ const data = [
         email: "cran2@gmail.com",
         phone: 2098345,
         company: "cran2Group",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 4,
@@ -207,7 +334,14 @@ const data = [
         email: "cran3@gmail.com",
         phone: 2098345,
         company: "cran3Groupn",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       },
       {
         id: 5,
@@ -215,7 +349,14 @@ const data = [
         email: "cran4@gmail.com",
         phone: 2098345324,
         company: "cran4GroupI",
-        address: "39493, Hyd"
+        address: "39493, Hyd",
+        chat: [
+          { status: "to", id: 1, message: "Hella" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" },
+          { status: "to", id: 1, message: "Hello" },
+          { status: "from", id: 1, message: "Hello" }
+        ]
       }
     ]
   }
@@ -332,9 +473,24 @@ class ContactsListTable extends Component {
     event.stopPropagation();
   };
 
+  onSendMessage = (id, chat) => {
+    console.log(id, chat);
+    const { contactList } = this.state;
+    const updatedList = contactList.map((item) => {
+      if (item.id === id) {
+        item.chat = chat;
+        return item;
+      }
+      return item;
+    });
+    console.log(updatedList);
+    // this.setState({
+    //   contactList: updatedList
+    // });
+  };
+
   renderContactListTable = () => {
-    console.log("changed");
-    const { contactList, showModal } = this.state;
+    const { contactList } = this.state;
     return contactList.map((item) => {
       var colors = ["#74609e", "#7880de", "#e887b7", "#709e60", "#9e6760"];
       var random_color = colors[Math.floor(Math.random() * colors.length)];
@@ -352,12 +508,6 @@ class ContactsListTable extends Component {
                   this.onEditIconClick(item);
                 }}
               />
-              {/* <ModalCard
-                showModal={showModal}
-                updateContactList={this.editContact}
-                handleCloseModal={this.handleCloseModal}
-                details={item}
-              /> */}
             </IconContainer>
           </Td>
           <Td>
@@ -371,7 +521,7 @@ class ContactsListTable extends Component {
               </NameEmailContainer>
             </InfoContainer>
           </Td>
-          <Td>{item.company}</Td>
+          <Td last>{item.company}</Td>
         </Tr>
       );
     });
@@ -384,16 +534,18 @@ class ContactsListTable extends Component {
         {this.renderSearchAndAddContacts()}
         <TabelAndChatOrDetailsContainer>
           {contactList.length !== 0 ? (
-            <Table>
-              <TableHeader>
-                <Tr>
-                  <Th>+</Th>
-                  <Th>Basic Info</Th>
-                  <Th>Company</Th>
-                </Tr>
-              </TableHeader>
-              <TableBody>{this.renderContactListTable()}</TableBody>
-            </Table>
+            <TableContainer>
+              <Table>
+                <TableHeader>
+                  <Tr>
+                    <Th>+</Th>
+                    <Th>Basic Info</Th>
+                    <Th>Company</Th>
+                  </Tr>
+                </TableHeader>
+                <TableBody>{this.renderContactListTable()}</TableBody>
+              </Table>
+            </TableContainer>
           ) : (
             <LoadingContainer>
               <LoadingText>Loading</LoadingText>
@@ -417,7 +569,11 @@ class ContactsListTable extends Component {
               )}
             </TabPanel>
             <TabPanel>
-              <ChatBoard />
+              <ChatBoard
+                id={selectedDetail.id}
+                chataData={selectedDetail.chat}
+                onSendMessage={this.onSendMessage}
+              />
             </TabPanel>
           </TabsContainer>
         </TabelAndChatOrDetailsContainer>

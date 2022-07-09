@@ -5,14 +5,13 @@ const ChatBoardMainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   background: black;
-  width: 100%;
-  margin: 8px;
-  padding: 6px;
   border-radius: 15px;
+  padding: 6px;
+  margin: 8px;
   @media screen and (min-width: 568px) {
     max-width: 350px;
-    margin: 10px;
     padding: 10px;
+    margin: 10px;
   }
 `;
 const ChardBoardChatContainer = styled.div`
@@ -22,10 +21,10 @@ const ChardBoardChatContainer = styled.div`
   align-items: flex-start;
   align-self: stretch;
   flex-grow: 1;
-  max-height: 200px;
-  padding: 10px;
-  border-radius: 15px;
   overflow: auto;
+  max-height: 200px;
+  border-radius: 15px;
+  padding: 10px;
   @media screen and (min-width: 568px) {
     max-width: 400px;
   }
@@ -33,12 +32,12 @@ const ChardBoardChatContainer = styled.div`
 const LogoAndTextContainer = styled.div`
   display: flex;
   align-items: center;
+  align-self: ${(props) => (props.status !== "to" ? "flex-start" : "flex-end")};
   margin: 5px;
-  align-self: ${(props) => (props.status === "to" ? "flex-start" : "flex-end")};
 `;
 
 const LogoContainer = styled.div`
-  order: ${(props) => (props.status === "to" ? "0" : "1")};
+  order: ${(props) => (props.status === "to" ? "1" : "")};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,8 +46,8 @@ const LogoContainer = styled.div`
   height: 20px;
   border-radius: 50%;
   padding: 2px;
-  margin-right: ${(props) => (props.status === "to" ? "5px" : "0px")};
-  margin-left: ${(props) => (props.status === "to" ? "0px" : "5px")};
+  margin-left: ${(props) => (props.status === "to" ? "5px" : "0px")};
+  margin-right: ${(props) => (props.status === "to" ? "0px" : "5px")};
   @media screen and (min-width: 568px) {
     width: 22px;
     height: 22px;
@@ -56,9 +55,9 @@ const LogoContainer = styled.div`
   }
 `;
 const Logo = styled.p`
+  color: #ffffff;
   font-size: 12px;
   font-weight: 400;
-  color: #ffffff;
   font-family: sans-serif;
   padding: 0px;
   margin: 0px;
@@ -69,8 +68,8 @@ const Logo = styled.p`
 const TextBox = styled.p`
   background: #dbdbd0;
   font-size: 12px;
-  border-radius: 2px;
   font-family: sans-serif;
+  border-radius: 2px;
   padding: 5px 20px 5px 10px;
   margin: 0px;
   @media screen and (min-width: 568px) {
@@ -82,15 +81,15 @@ const TextBox = styled.p`
 const InputAndButtonConatiner = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   align-self: stretch;
+  flex-wrap: wrap;
   flex-grow: 1;
   max-width: 300px;
   padding: 4px 6px;
   @media screen and (min-width: 568px) {
-    padding: 6px 8px;
     font-size: 20px;
     max-width: 450px;
+    padding: 6px 8px;
   }
 `;
 
@@ -103,16 +102,16 @@ const InputContainer = styled.div`
   padding: 4px;
   margin-right: 8px;
   @media screen and (min-width: 568px) {
-    margin-right: 14px;
     padding: 6px;
+    margin-right: 14px;
   }
 `;
 const Input = styled.input`
   display: flex;
   flex-wrap: wrap;
+  background-color: inherit;
   font-size: 12px;
   font-family: sans-serif;
-  background-color: inherit;
   border: none;
   outline: none;
   padding: 3px;
@@ -122,16 +121,16 @@ const Input = styled.input`
   }
 `;
 const Button = styled.button`
-  font-size: 12px;
   color: #ffffff;
   background: #ba3627;
+  font-size: 12px;
   border: none;
+  border-radius: 5px;
   outline: none;
   padding: 2px 6px;
-  border-radius: 5px;
   @media screen and (min-width: 568px) {
-    padding: 4px 8px;
     font-size: 16px;
+    padding: 4px 8px;
   }
 `;
 
