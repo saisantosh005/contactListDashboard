@@ -7,7 +7,8 @@ import {
   Button,
   LabelAndInputContainer,
   Label,
-  ButtonContainer
+  ButtonContainer,
+  ErrorText
 } from "./styledComponents";
 
 class ModalCard extends Component {
@@ -19,7 +20,8 @@ class ModalCard extends Component {
       phone: "",
       email: "",
       company: "",
-      address: ""
+      address: "",
+      error: false
     };
   }
 
@@ -79,33 +81,39 @@ class ModalCard extends Component {
   onSaveDetails = (event) => {
     const { id, name, phone, email, address, company } = this.state;
     const { updateContactList, handleCloseModal } = this.props;
-    const newObject = {
-      id,
-      name,
-      phone,
-      email,
-      address,
-      company
-    };
+    if (name === "" || email === "" || phone === "") {
+      this.setState({
+        error: true
+      });
+    } else {
+      const newObject = {
+        id,
+        name,
+        phone,
+        email,
+        address,
+        company
+      };
 
-    updateContactList(newObject);
-    this.setState(
-      {
-        id: "",
-        name: "",
-        phone: "",
-        email: "",
-        address: "",
-        company: ""
-      },
-      handleCloseModal
-    );
+      updateContactList(newObject);
+      this.setState(
+        {
+          id: "",
+          name: "",
+          phone: "",
+          email: "",
+          address: "",
+          company: "",
+          error: false
+        },
+        handleCloseModal
+      );
+    }
   };
 
   render() {
-    // console.log(this.props.details, "H");
     const { handleCloseModal, showModal } = this.props;
-    const { name, phone, email, address, company } = this.state;
+    const { name, phone, email, address, company, error } = this.state;
 
     return (
       <ModalMainContainer
@@ -128,7 +136,9 @@ class ModalCard extends Component {
       >
         <ModalContainer>
           <LabelAndInputContainer>
-            <Label>Name</Label>
+            <Label>
+              Name <ErrorText>*</ErrorText>
+            </Label>
             <Input
               type="text"
               onChange={this.onChangeName}
@@ -138,7 +148,9 @@ class ModalCard extends Component {
           </LabelAndInputContainer>
 
           <LabelAndInputContainer>
-            <Label>Email</Label>
+            <Label>
+              Email <ErrorText>*</ErrorText>
+            </Label>
             <Input
               type="email"
               onChange={this.onChangeEmail}
@@ -148,7 +160,9 @@ class ModalCard extends Component {
           </LabelAndInputContainer>
 
           <LabelAndInputContainer>
-            <Label>Phone</Label>
+            <Label>
+              Phone <ErrorText>*</ErrorText>
+            </Label>
             <Input
               type="phone"
               onChange={this.onChangePhone}
@@ -175,10 +189,16 @@ class ModalCard extends Component {
               value={address}
             />
           </LabelAndInputContainer>
+
           <ButtonContainer>
             <Button onClick={this.onSaveDetails}>Save</Button>
             <Button onClick={handleCloseModal}>Close</Button>
           </ButtonContainer>
+          {error ? (
+            <ErrorText>* Madatory fields should not be empty.</ErrorText>
+          ) : (
+            ""
+          )}
         </ModalContainer>
       </ModalMainContainer>
     );

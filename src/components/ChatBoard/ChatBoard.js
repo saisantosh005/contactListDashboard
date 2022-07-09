@@ -14,14 +14,6 @@ import {
   Button
 } from "./styledComponents";
 
-const data = [
-  { status: "to", id: 1, message: "Hella" },
-  { status: "to", id: 1, message: "Hello" },
-  { status: "from", id: 1, message: "Hello" },
-  { status: "to", id: 1, message: "Hello" },
-  { status: "from", id: 1, message: "Hello" }
-];
-
 class ChatBoard extends Component {
   constructor(props) {
     super(props);

@@ -68,6 +68,11 @@ const Button = styled.button`
   }
 `;
 
+const ErrorText = styled.span`
+  color: red;
+  font-size: 12px;
+`;
+
 export {
   ModalContainer,
   ModalMainContainer,
@@ -75,5 +80,6 @@ export {
   LabelAndInputContainer,
   Label,
   ButtonContainer,
-  Button
+  Button,
+  ErrorText
 };

@@ -1,5 +1,4 @@
 import { Component } from "react";
-import ContactDetailsCard from "../ContactDetailsCard/ContactDetailsCard";
 import ContactsListTable from "../ContactListTable/ContactListTable";
 import Header from "../Header/Header";
 import NavBar from "../NavBar/NavBar";
